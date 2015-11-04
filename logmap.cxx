@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 
 using namespace std;
 
@@ -7,7 +8,7 @@ int main(){
 	double x;
 	int Nskip = 100; //Number of iterations to skip
 	int Nend  = 200; //Number of total iterations
-
+	int Data[100];
 	for(double r=0; r <= 4; r += 0.001){
 	   x=x0;
 	   for(int i=1; i <= Nskip; i++)
@@ -17,7 +18,10 @@ int main(){
 	   		   cout << r << "\t" << x << endl;
    	   }
 	}
+	ofstream out("output.dat");
+	out  << "a = " << a <<  "\t b = " << b << endl;  // Print to file
 
+ 	out.close();
 
 	return 0;
 }
